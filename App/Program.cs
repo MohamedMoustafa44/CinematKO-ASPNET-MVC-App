@@ -1,3 +1,5 @@
+using App.Data;
+
 namespace App
 {
     public class Program
@@ -6,6 +8,7 @@ namespace App
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContext<AppDbContext>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
