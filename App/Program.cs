@@ -1,4 +1,6 @@
 using App.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace App
 {
@@ -8,10 +10,13 @@ namespace App
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<AppDbContext>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AppDbContext>(a =>
+            {
+                a.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
