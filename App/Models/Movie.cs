@@ -8,10 +8,13 @@ namespace App.Models
     {
         [Key]
         public int MovieId { get; set; }
+        [Display(Name = "Movie Name")]
         public string Name { get; set; }
+        [Display(Name = "Movie Description")]
         public string Description { get; set; }
         public double Price { get; set; }
-        public string ImageUrl { get; set; }
+        [Display(Name = "Movie Poster")]
+        public string ImageURL { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public MovieCategory MovieCategory { get; set; }

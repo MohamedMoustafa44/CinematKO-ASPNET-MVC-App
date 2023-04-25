@@ -13,8 +13,8 @@ namespace App.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _context.Movies.ToListAsync();
-            return View();
+            var allMovies = await _context.Movies.Include(obj => obj.Cinema).ToListAsync();
+            return View(allMovies);
         }
     }
 }
